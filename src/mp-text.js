@@ -11,13 +11,14 @@ registerDependencies({
 export default class MpText extends MjText {
   static allowedAttributes = {
     ...MjText.allowedAttributes,
-    'mp:edit': 'string',
-    'mp:hideable': 'string',
+    'pardot-removable': 'boolean',
+    'pardot-region': 'boolean',
   }
 
   static defaultAttributes = {
     ...MjText.defaultAttributes,
-    'mp:hideable': false
+    'pardot-removable': false,
+    'pardot-region': false,
   }
 
   isHideable() {
@@ -31,7 +32,7 @@ export default class MpText extends MjText {
   renderContent(compound = false) {
     let attrs = {
       'style': 'text',
-      'mp:edit': this.getAttribute('mp:edit'),
+      'pardot-region': this.getAttribute('pardot-region') ? '' : undefined,
     }
 
     if (compound === false && this.isHideable()) {
@@ -51,8 +52,8 @@ export default class MpText extends MjText {
       <div
         ${this.htmlAttributes({
           style: 'text',
-          'mp:edit': this.getAttribute('mp:edit'),
-          'mp:hideable': this.getAttribute('mp:hideable') ? 'mp:hideable' : null,
+          'pardot-region': this.getAttribute('pardot-region') ? '' : undefined,
+          'pardot-removable': this.getAttribute('pardot-removable') ? '' : undefined,
         })}
       >
         ${this.getContent()}

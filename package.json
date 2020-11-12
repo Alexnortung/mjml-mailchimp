@@ -1,6 +1,6 @@
 {
   "name": "mjml-pardot",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Mailchimp compatible MJML v4 components",
   "bin": {
     "mjml-pardot": "bin/mjml-pardot"

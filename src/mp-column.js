@@ -85,5 +85,25 @@ export default class MpColumn extends MjColumn {
         })}
         </table>
     `
-  }
+    }
+    render() {
+    let classesName = `${this.getColumnClass()} mj-outlook-group-fix`
+
+    if (this.getAttribute('css-class')) {
+        classesName += ` ${this.getAttribute('css-class')}`
+    }
+
+    return `
+        <div
+        ${this.htmlAttributes({
+            class: classesName,
+            style: 'div',
+            'pardot-repeatable': this.getAttribute('pardot-repeatable') ? '' : undefined,
+            'pardot-removable': this.getAttribute('pardot-removable') ? '' : undefined,
+        })}
+        >
+        ${this.hasGutter() ? this.renderGutter() : this.renderColumn()}
+        </div>
+    `
+    }
 }

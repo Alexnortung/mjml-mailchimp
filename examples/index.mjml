@@ -17,5 +17,17 @@
         <mj-button background-color="#333333" color="#FFFFFF" font-size="15px" align="center" vertical-align="middle" border="none" padding="15px 30px" border-radius="3px" href="https://mjml.io" font-family="sans-serif" padding="25px">Click here</mj-button>
       </mp-column>
     </mp-section>
+    <mj-section>
+      <mj-column>
+        <mj-social mode="vertical">
+          <mp-social-element pardot-repeatable="true">
+            Hello
+          </mp-social-element>
+          <mp-social-element pardot-removable="true">
+            Hello
+          </mp-social-element>
+        </mj-social>
+      </mj-column>
+    </mj-section>
   </mj-body>
 </mjml>

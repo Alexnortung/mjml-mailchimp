@@ -4,6 +4,7 @@
     "./lib/mp-image.js",
     "./lib/mp-button.js",
     "./lib/mp-text.js",
+    "./lib/mp-social-element.js",
     "./lib/mp-column.js"
   ]
 }

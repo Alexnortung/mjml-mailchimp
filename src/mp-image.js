@@ -13,13 +13,14 @@ export default class MpImage extends MjImage {
 
   static allowedAttributes = {
     ...MjImage.allowedAttributes,
-    'mp:edit': 'string',
-    'mp:hideable': 'string',
+    'pardot-region': 'boolean',
+    'pardot-removable': 'boolean',
   }
 
   static defaultAttributes = {
     ...MjImage.defaultAttributes,
-    'mp:hideable': false,
+    'pardot-region': false,
+    'pardot-removable': false,
   }
 
   // MODIFIED form https://github.com/mjmlio/mjml/blob/master/packages/mjml-image/src/index.js
@@ -36,7 +37,7 @@ export default class MpImage extends MjImage {
           style: 'img',
           title: this.getAttribute('title'),
           width: this.getContentWidth(),
-          'mp:edit': this.getAttribute('mp:edit'),
+          'pardot-region': this.getAttribute('pardot-region') ? '' : undefined,
         })}
       />
     `
@@ -73,7 +74,7 @@ export default class MpImage extends MjImage {
             this.getAttribute('fluid-on-mobile')
               ? 'full-width-mobile'
               : null,
-          'mp:hideable': this.getAttribute('mp:hideable') ? 'mp:hideable' : null,
+          'pardot-removable': this.getAttribute('pardot-removable') ? '' : undefined,
         })}
       >
         <tbody>

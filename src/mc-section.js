@@ -6,7 +6,7 @@ import { registerDependencies } from 'mjml-validator'
 registerDependencies({
   'mj-body': ['mc-section'],
   'mj-wrapper': ['mc-section'],
-  'mc-section': ['mj-column', 'mj-group', 'mj-raw'],
+  'mc-section': ['mc-column', 'mj-column', 'mj-group', 'mj-raw'],
 });
 
 const makeBackgroundString = flow(filter(identity), join(' '))
@@ -36,8 +36,7 @@ export default class McSection extends MjSection {
   // MODIFIED from https://github.com/mjmlio/mjml/blob/master/packages/mjml-section/src/index.js
   renderSection() {
     const hasBackground = this.hasBackground()
-
-    return `
+    const s = `
       <div ${this.htmlAttributes({
         class: this.isFullWidth() ? null : this.getAttribute('css-class'),
         style: 'div',
@@ -83,5 +82,6 @@ export default class McSection extends MjSection {
         ${hasBackground ? '</div>' : ''}
       </div>
     `
+    return s
   }
 }

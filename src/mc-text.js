@@ -3,6 +3,7 @@ import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
   'mj-column': ['mc-text'],
+  'mc-column': ['mc-text'],
   'mj-hero': ['mc-text'],
   'mc-text': [],
 });

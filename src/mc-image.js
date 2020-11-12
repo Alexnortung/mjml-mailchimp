@@ -2,6 +2,7 @@ import MjImage from 'mjml-image'
 import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
+  'mc-column': ['mc-image'],
   'mj-column': ['mc-image'],
   'mj-hero': ['mc-image'],
   'mc-image': [],

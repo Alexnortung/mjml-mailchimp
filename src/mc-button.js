@@ -4,6 +4,7 @@ import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
   'mj-column': ['mc-button'],
+  'mc-column': ['mc-button'],
   'mj-hero': ['mc-button'],
   'mc-button': [],
 });

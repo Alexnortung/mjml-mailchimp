@@ -13,6 +13,7 @@ registerDependencies({
         'mj-carousel',
         'mj-divider',
         'mj-image',
+        'mj-raw',
         'mj-social',
         'mj-spacer',
         'mj-table',

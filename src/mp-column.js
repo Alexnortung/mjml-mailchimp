@@ -2,12 +2,12 @@ import MjColumn from 'mjml-column'
 import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
-    'mc-section': ['mc-column'],
-    'mj-section': ['mc-column'],
-    'mj-group': ['mc-column'],
-    'mc-column': [
-        'mc-text',
-        'mc-image',
+    'mp-section': ['mp-column'],
+    'mj-section': ['mp-column'],
+    'mj-group': ['mp-column'],
+    'mp-column': [
+        'mp-text',
+        'mp-image',
         'mj-accordion',
         'mj-button',
         'mj-carousel',
@@ -20,7 +20,7 @@ registerDependencies({
     ],
 })
 
-export default class McColumn extends MjColumn {
+export default class MpColumn extends MjColumn {
     static allowedAttributes = {
         ...MjColumn.allowedAttributes,
         'pardot-repeatable': 'boolean',

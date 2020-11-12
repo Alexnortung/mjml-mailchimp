@@ -2,24 +2,24 @@ import MjImage from 'mjml-image'
 import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
-  'mc-column': ['mc-image'],
-  'mj-column': ['mc-image'],
-  'mj-hero': ['mc-image'],
-  'mc-image': [],
+  'mp-column': ['mp-image'],
+  'mj-column': ['mp-image'],
+  'mj-hero': ['mp-image'],
+  'mp-image': [],
 });
 
-export default class McImage extends MjImage {
+export default class MpImage extends MjImage {
   static tagOmission = true
 
   static allowedAttributes = {
     ...MjImage.allowedAttributes,
-    'mc:edit': 'string',
-    'mc:hideable': 'string',
+    'mp:edit': 'string',
+    'mp:hideable': 'string',
   }
 
   static defaultAttributes = {
     ...MjImage.defaultAttributes,
-    'mc:hideable': false,
+    'mp:hideable': false,
   }
 
   // MODIFIED form https://github.com/mjmlio/mjml/blob/master/packages/mjml-image/src/index.js
@@ -36,7 +36,7 @@ export default class McImage extends MjImage {
           style: 'img',
           title: this.getAttribute('title'),
           width: this.getContentWidth(),
-          'mc:edit': this.getAttribute('mc:edit'),
+          'mp:edit': this.getAttribute('mp:edit'),
         })}
       />
     `
@@ -73,7 +73,7 @@ export default class McImage extends MjImage {
             this.getAttribute('fluid-on-mobile')
               ? 'full-width-mobile'
               : null,
-          'mc:hideable': this.getAttribute('mc:hideable') ? 'mc:hideable' : null,
+          'mp:hideable': this.getAttribute('mp:hideable') ? 'mp:hideable' : null,
         })}
       >
         <tbody>

@@ -1,10 +1,12 @@
 {
-  "name": "mjml-mailchimp",
+  "name": "mjml-pardot",
   "version": "0.0.5",
   "description": "Mailchimp compatible MJML v4 components",
+  "bin": {
+    "mjml-pardot": "bin/mjml-pardot"
+  },
   "author": {
-    "name": "James Homer",
-    "email": "jameshomer85@gmail.com"
+    "name": "Alexander Nortung"
   },
   "license": "MIT",
   "repository": "https://github.com/homerjam/mjml-mailchimp.git",
@@ -27,6 +29,7 @@
     "babel-runtime": "^6.26.0",
     "mjml": "^4.7.1",
     "mjml-button": "^4.4.0-beta.1",
+    "mjml-cli": "^4.7.1",
     "mjml-column": "^4.7.1",
     "mjml-core": "^4.4.0-beta.1",
     "mjml-image": "^4.4.0-beta.1",

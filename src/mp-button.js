@@ -3,28 +3,28 @@ import { BodyComponent } from 'mjml-core'
 import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
-  'mj-column': ['mc-button'],
-  'mc-column': ['mc-button'],
-  'mj-hero': ['mc-button'],
-  'mc-button': [],
+  'mj-column': ['mp-button'],
+  'mp-column': ['mp-button'],
+  'mj-hero': ['mp-button'],
+  'mp-button': [],
 });
 
-export default class McButton extends MjButton {
+export default class MpButton extends MjButton {
   static endingTag = true
 
   static allowedAttributes = {
     ...MjButton.allowedAttributes,
-    'mc:edit': 'string',
-    'mc:hideable': 'string',
+    'mp:edit': 'string',
+    'mp:hideable': 'string',
   }
 
   static defaultAttributes = {
     ...MjButton.defaultAttributes,
-    'mc:hideable': false
+    'mp:hideable': false
   }
 
   isHideable() {
-    if (this.getAttribute('mc:hideable') !== false) {
+    if (this.getAttribute('mp:hideable') !== false) {
       return true
     }
 
@@ -43,7 +43,7 @@ export default class McButton extends MjButton {
           cellspacing: '0',
           role: 'presentation',
           style: 'table',
-          'mc:hideable': this.getAttribute('mc:hideable') ? 'mc:hideable' : null,
+          'mp:hideable': this.getAttribute('mp:hideable') ? 'mp:hideable' : null,
         })}
       >
         <tr>
@@ -57,7 +57,7 @@ export default class McButton extends MjButton {
               role: 'presentation',
               style: 'td',
               valign: this.getAttribute('vertical-align'),
-              'mc:edit': this.getAttribute('mc:edit')
+              'mp:edit': this.getAttribute('mp:edit')
             })}
           >
             <${tag}

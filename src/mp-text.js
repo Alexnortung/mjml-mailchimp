@@ -2,26 +2,26 @@ import MjText from 'mjml-text'
 import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
-  'mj-column': ['mc-text'],
-  'mc-column': ['mc-text'],
-  'mj-hero': ['mc-text'],
-  'mc-text': [],
+  'mj-column': ['mp-text'],
+  'mp-column': ['mp-text'],
+  'mj-hero': ['mp-text'],
+  'mp-text': [],
 });
 
-export default class McText extends MjText {
+export default class MpText extends MjText {
   static allowedAttributes = {
     ...MjText.allowedAttributes,
-    'mc:edit': 'string',
-    'mc:hideable': 'string',
+    'mp:edit': 'string',
+    'mp:hideable': 'string',
   }
 
   static defaultAttributes = {
     ...MjText.defaultAttributes,
-    'mc:hideable': false
+    'mp:hideable': false
   }
 
   isHideable() {
-    if (this.getAttribute('mc:hideable') !== false) {
+    if (this.getAttribute('mp:hideable') !== false) {
       return true
     }
 
@@ -31,11 +31,11 @@ export default class McText extends MjText {
   renderContent(compound = false) {
     let attrs = {
       'style': 'text',
-      'mc:edit': this.getAttribute('mc:edit'),
+      'mp:edit': this.getAttribute('mp:edit'),
     }
 
     if (compound === false && this.isHideable()) {
-      attrs['mc:hideable'] = true
+      attrs['mp:hideable'] = true
     }
     return `
       <div
@@ -51,8 +51,8 @@ export default class McText extends MjText {
       <div
         ${this.htmlAttributes({
           style: 'text',
-          'mc:edit': this.getAttribute('mc:edit'),
-          'mc:hideable': this.getAttribute('mc:hideable') ? 'mc:hideable' : null,
+          'mp:edit': this.getAttribute('mp:edit'),
+          'mp:hideable': this.getAttribute('mp:hideable') ? 'mp:hideable' : null,
         })}
       >
         ${this.getContent()}

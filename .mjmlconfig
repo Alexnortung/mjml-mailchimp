@@ -1,9 +1,9 @@
 {
   "packages": [
-    "./lib/mc-section.js",
-    "./lib/mc-image.js",
-    "./lib/mc-button.js",
-    "./lib/mc-text.js",
-    "./lib/mc-column.js"
+    "./lib/mp-section.js",
+    "./lib/mp-image.js",
+    "./lib/mp-button.js",
+    "./lib/mp-text.js",
+    "./lib/mp-column.js"
   ]
 }

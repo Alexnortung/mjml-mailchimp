@@ -4,29 +4,30 @@ import MjSection from 'mjml-section'
 import { registerDependencies } from 'mjml-validator'
 
 registerDependencies({
-  'mj-body': ['mc-section'],
-  'mj-wrapper': ['mc-section'],
-  'mc-section': ['mc-column', 'mj-column', 'mj-group', 'mj-raw'],
+  'mj-body': ['mp-section'],
+  'mj-wrapper': ['mp-section'],
+  'mp-section': ['mp-column', 'mj-column', 'mj-group', 'mj-raw'],
 });
 
 const makeBackgroundString = flow(filter(identity), join(' '))
-export default class McSection extends MjSection {
+export default class MpSection extends MjSection {
   static allowedAttributes = {
     ...MjSection.allowedAttributes,
-    'mc:hideable': 'string',
-    'mc:repeatable': 'string',
-    'mc:variant': 'string',
-    'mc:edit': 'string',
+    'pardot-removable': 'boolean',
+    'pardot-repeatable': 'boolean',
+    'pardot-region': 'boolean',
   }
 
   static defaultAttributes = {
     ...MjSection.defaultAttributes,
-    'mc:hideable': false,
+    'pardot-removable': false,
+    'pardot-repeatable': false,
+    'pardot-region': false,
   }
 
 
   isHideable() {
-    if (this.getAttribute('mc:hideable') !== false) {
+    if (this.getAttribute('pardot-repeatable') !== false) {
       return true
     }
 
@@ -40,10 +41,9 @@ export default class McSection extends MjSection {
       <div ${this.htmlAttributes({
         class: this.isFullWidth() ? null : this.getAttribute('css-class'),
         style: 'div',
-        'mc:repeatable': this.getAttribute('mc:repeatable'),
-        'mc:variant': this.getAttribute('mc:variant'),
-        'mc:edit': this.getAttribute('mc:edit'),
-        'mc:hideable': this.getAttribute('mc:hideable') ? 'mc:hideable' : null,
+        'pardot-repeatable': this.getAttribute('pardot-repeatable') ? "" : undefined,
+        'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
+        'pardot-removable': this.getAttribute('pardot-removable') ? "" : undefined,
       })}>
         ${hasBackground
           ? `<div ${this.htmlAttributes({ style: 'innerDiv' })}>`

@@ -14,8 +14,9 @@ export default class MpButton extends MjButton {
 
   static allowedAttributes = {
     ...MjButton.allowedAttributes,
-    'mp:edit': 'string',
-    'mp:hideable': 'string',
+    'pardot-region': 'boolean',
+    'pardot-removable': 'boolean',
+    'pardot-repeatable': 'boolean',
   }
 
   static defaultAttributes = {
@@ -43,7 +44,8 @@ export default class MpButton extends MjButton {
           cellspacing: '0',
           role: 'presentation',
           style: 'table',
-          'mp:hideable': this.getAttribute('mp:hideable') ? 'mp:hideable' : null,
+          'pardot-repeatable': this.getAttribute('pardot-repeatable') ? '' : undefined,
+          'pardot-removeable': this.getAttribute('pardot-removeable') ? '' : undefined,
         })}
       >
         <tr>
@@ -57,7 +59,7 @@ export default class MpButton extends MjButton {
               role: 'presentation',
               style: 'td',
               valign: this.getAttribute('vertical-align'),
-              'mp:edit': this.getAttribute('mp:edit')
+              'pardot-region': this.getAttribute('pardot-region') ? '' : undefined,
             })}
           >
             <${tag}

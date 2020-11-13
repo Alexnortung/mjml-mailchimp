@@ -76,7 +76,7 @@ const {
   MpButton,
   MpColumn,
   MpSocialElement,
-} = require('./index.js')
+} = require('mjml-pardot')
 
 registerComponent(MpSection)
 registerComponent(MpImage)

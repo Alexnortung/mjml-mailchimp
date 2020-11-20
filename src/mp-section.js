@@ -34,6 +34,53 @@ export default class MpSection extends MjSection {
     return false
   }
 
+  isPardot() {
+    return this.getAttribute('pardot-repeatable') || this.getAttribute('pardot-region') || this.getAttribute('pardot-removable')
+  }
+
+  renderBefore() {
+    const { containerWidth } = this.context
+
+    // Only add div if any of the pardot attributes are true
+    const beforeDiv = `
+    <div ${this.htmlAttributes({
+      'pardot-repeatable': this.getAttribute('pardot-repeatable') ? "" : undefined,
+      'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
+      'pardot-removable': this.getAttribute('pardot-removable') ? "" : undefined,
+    })}
+    `
+
+    return `
+      ${this.isPardot() ? beforeDiv : ''}
+      <!--[if mso | IE]>
+      <table
+        ${this.htmlAttributes({
+          align: 'center',
+          border: '0',
+          cellpadding: '0',
+          cellspacing: '0',
+          class: suffixCssClasses(this.getAttribute('css-class'), 'outlook'),
+          style: { width: `${containerWidth}` },
+          width: parseInt(containerWidth, 10),
+        })}
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    `
+  }
+
+  renderAfter() {
+    return `
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+      ${this.isPardot() ? '</div>' : ''}
+    `
+  }
+
   // MODIFIED from https://github.com/mjmlio/mjml/blob/master/packages/mjml-section/src/index.js
   renderSection() {
     const hasBackground = this.hasBackground()
@@ -41,9 +88,6 @@ export default class MpSection extends MjSection {
       <div ${this.htmlAttributes({
         class: this.isFullWidth() ? null : this.getAttribute('css-class'),
         style: 'div',
-        'pardot-repeatable': this.getAttribute('pardot-repeatable') ? "" : undefined,
-        'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
-        'pardot-removable': this.getAttribute('pardot-removable') ? "" : undefined,
       })}>
         ${hasBackground
           ? `<div ${this.htmlAttributes({ style: 'innerDiv' })}>`

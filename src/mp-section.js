@@ -1,5 +1,4 @@
 import { flow, identity, join, filter } from 'lodash/fp'
-import { suffixCssClasses } from 'mjml-core'
 import MjSection from 'mjml-section'
 import { registerDependencies } from 'mjml-validator'
 
@@ -58,51 +57,4 @@ export default class MpSection extends MjSection {
     `
   }
 
-  // MODIFIED from https://github.com/mjmlio/mjml/blob/master/packages/mjml-section/src/index.js
-  renderSection() {
-    const hasBackground = this.hasBackground()
-    const s = `
-      <div ${this.htmlAttributes({
-        class: this.isFullWidth() ? null : this.getAttribute('css-class'),
-        style: 'div',
-      })}>
-        ${hasBackground
-          ? `<div ${this.htmlAttributes({ style: 'innerDiv' })}>`
-          : ''}
-        <table
-          ${this.htmlAttributes({
-            align: 'center',
-            background: this.isFullWidth()
-              ? null
-              : this.getAttribute('background-url'),
-            border: '0',
-            cellpadding: '0',
-            cellspacing: '0',
-            role: 'presentation',
-            style: 'table',
-          })}
-        >
-          <tbody>
-            <tr>
-              <td
-                ${this.htmlAttributes({
-                  style: 'td',
-                })}
-              >
-                <!--[if mso | IE]>
-                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                <![endif]-->
-                  ${this.renderWrappedChildren()}
-                <!--[if mso | IE]>
-                  </table>
-                <![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        ${hasBackground ? '</div>' : ''}
-      </div>
-    `
-    return s
-  }
 }

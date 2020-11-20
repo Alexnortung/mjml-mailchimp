@@ -34,9 +34,11 @@ export default class MpImage extends MjImage {
           height: height && (height === 'auto' ? height : parseInt(height, 10)),
           src: this.getAttribute('src'),
           srcset: this.getAttribute('srcset'),
+          sizes: this.getAttribute('sizes'),
           style: 'img',
           title: this.getAttribute('title'),
           width: this.getContentWidth(),
+          usemap: this.getAttribute('usemap'),
           'pardot-region': this.getAttribute('pardot-region') ? '' : undefined,
         })}
       />
@@ -70,10 +72,9 @@ export default class MpImage extends MjImage {
           cellspacing: '0',
           role: 'presentation',
           style: 'table',
-          class:
-            this.getAttribute('fluid-on-mobile')
-              ? 'full-width-mobile'
-              : null,
+          class: this.getAttribute('fluid-on-mobile')
+            ? 'mj-full-width-mobile'
+            : null,
           'pardot-removable': this.getAttribute('pardot-removable') ? '' : undefined,
         })}
       >
@@ -81,10 +82,9 @@ export default class MpImage extends MjImage {
           <tr>
             <td ${this.htmlAttributes({
               style: 'td',
-              class:
-                this.getAttribute('fluid-on-mobile')
-                  ? 'full-width-mobile'
-                  : null,
+              class: this.getAttribute('fluid-on-mobile')
+                ? 'mj-full-width-mobile'
+                : null,
             })}>
               ${this.renderImage()}
             </td>

@@ -38,46 +38,23 @@ export default class MpSection extends MjSection {
     return this.getAttribute('pardot-repeatable') || this.getAttribute('pardot-region') || this.getAttribute('pardot-removable')
   }
 
-  renderBefore() {
-    const { containerWidth } = this.context
-
-    // Only add div if any of the pardot attributes are true
+  render() {
+    const cssClass = this.getAttribute('css-class') ? this.getAttribute('css-class') : ''
     const beforeDiv = `
     <div ${this.htmlAttributes({
+      class: cssClass.split(' ').map(s => 'pardot-section-' + s).join(' '),
       'pardot-repeatable': this.getAttribute('pardot-repeatable') ? "" : undefined,
       'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
       'pardot-removable': this.getAttribute('pardot-removable') ? "" : undefined,
     })}>
     `
-
+    const afterDiv = `
+      </div>
+    `
     return `
       ${this.isPardot() ? beforeDiv : ''}
-      <!--[if mso | IE]>
-      <table
-        ${this.htmlAttributes({
-          align: 'center',
-          border: '0',
-          cellpadding: '0',
-          cellspacing: '0',
-          class: suffixCssClasses(this.getAttribute('css-class'), 'outlook'),
-          style: { width: `${containerWidth}` },
-          width: parseInt(containerWidth, 10),
-        })}
-      >
-        <tr>
-          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-      <![endif]-->
-    `
-  }
-
-  renderAfter() {
-    return `
-      <!--[if mso | IE]>
-          </td>
-        </tr>
-      </table>
-      <![endif]-->
-      ${this.isPardot() ? '</div>' : ''}
+      ${MjSection.prototype.render.call(this)}
+      ${this.isPardot() ? afterDiv : ''}
     `
   }
 

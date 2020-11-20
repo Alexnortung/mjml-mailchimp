@@ -47,7 +47,7 @@ export default class MpSection extends MjSection {
       'pardot-repeatable': this.getAttribute('pardot-repeatable') ? "" : undefined,
       'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
       'pardot-removable': this.getAttribute('pardot-removable') ? "" : undefined,
-    })}
+    })}>
     `
 
     return `

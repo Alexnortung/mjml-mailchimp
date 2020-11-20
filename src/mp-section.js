@@ -1,5 +1,5 @@
 import { flow, identity, join, filter } from 'lodash/fp'
-
+import { suffixCssClasses } from 'mjml-core'
 import MjSection from 'mjml-section'
 import { registerDependencies } from 'mjml-validator'
 

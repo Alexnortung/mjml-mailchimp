@@ -29,5 +29,8 @@
         </mj-social>
       </mj-column>
     </mj-section>
+    <!-- section pardot -->
+    <mp-section pardot-region="true">
+    </mp-section>
   </mj-body>
 </mjml>

@@ -1,5 +1,7 @@
 # MJML Pardot
 
+![mjml pardot logo](img/mjml-pardot-logo.png)
+
 Pardot compatible MJML components.
 This is a fork of [mjml-mailchimp](https://github.com/homerjam/mjml-mailchimp) which has very similar funtionality, but for mailchimp.
 
@@ -34,6 +36,25 @@ npm script example
         "build": "mjml-pardot path/to/file.mjml -o path/to/putput.html"
     }
 }
+```
+
+### Example of mjml
+
+```xml
+<mjml>
+    <mj-body background-color="#f1f1f1">
+        <mp-section pardot-removable="true">
+            <mp-column pardot-repeatable-children="true">
+                <mj-text>
+                    Fixed text
+                </mj-text>
+                <mp-text pardot-region="true">
+                    Editable text
+                </mp-text>
+            </mp-column>
+        </mp-section>
+    </mj-body>
+</mjml>
 ```
 
 ## Usage
@@ -168,7 +189,7 @@ NOTE: repeatable might only work correctly in for `mj-social` tags with attribut
 
 | Attribute         | Unit    | Description                                              | Default value |
 |-------------------|---------|----------------------------------------------------------|---------------|
-| pardot-region     | boolean | If true, adds pardot-region to outer &lt;tr&gt; tag.     | false         |
+| pardot-region     | boolean | If true, adds pardot-region to image and text.     | false         |
 | pardot-removable  | boolean | If true, adds pardot-removable to outer &lt;tr&gt; tag.  | false         |
 | pardot-repeatable | boolean | If true, adds pardot-repeatable to outer &lt;tr&gt; tag. | false         |
 

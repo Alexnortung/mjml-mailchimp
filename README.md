@@ -142,6 +142,7 @@ Extends [mj-image](https://github.com/mjmlio/mjml/tree/master/packages/mjml-imag
 |------------------|---------|-------------------------------------------------------|---------------|
 | pardot-region    | boolean | If true, adds pardot-region to &lt;img&gt; tag        | false         |
 | pardot-removable | boolean | if true, adds pardot-removable to outer &lt;table&gt; | false         |
+| pardot-responsive-image | percentage | if true, adds percentage wiidth to img tag | undefined      |
 
 -------
 

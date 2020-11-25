@@ -39,6 +39,7 @@
             Hello world
           </mp-social-element>
         </mj-social>
+        <mp-image src="https://placehold.it/300" pardot-responsive-width="100%"  />
       </mj-column>
     </mj-section>
   </mj-body>

@@ -32,5 +32,14 @@
     <!-- section pardot -->
     <mp-section pardot-region="true">
     </mp-section>
+    <mj-section>
+      <mj-column>
+        <mj-social mode="vertical">
+          <mp-social-element pardot-region="true" src="https://placehold.it/8x8">
+            Hello world
+          </mp-social-element>
+        </mj-social>
+      </mj-column>
+    </mj-section>
   </mj-body>
 </mjml>

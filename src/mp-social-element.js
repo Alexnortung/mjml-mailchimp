@@ -13,6 +13,7 @@ export default class MpSocialElement extends SocialElement {
         'pardot-repeatable': 'boolean',
         'pardot-removable': 'boolean',
         'pardot-region': 'boolean',
+        // TODO: Add pardot-region-image and pardot-region-text
     }
 
     render() {
@@ -33,7 +34,6 @@ export default class MpSocialElement extends SocialElement {
             class: this.getAttribute('css-class'),
             'pardot-repeatable': this.getAttribute('pardot-repeatable') ? "" : undefined,
             'pardot-removable': this.getAttribute('pardot-removable') ? "" : undefined,
-            'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
         })}
         >
         <td ${this.htmlAttributes({ style: 'td' })}>
@@ -67,6 +67,7 @@ export default class MpSocialElement extends SocialElement {
                         width: parseInt(iconSize, 10),
                         sizes,
                         srcset,
+                        'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
                         })}
                     />
                     ${hasLink ? `</a>` : ''}
@@ -77,7 +78,10 @@ export default class MpSocialElement extends SocialElement {
         ${
             this.getContent()
             ? `
-            <td ${this.htmlAttributes({ style: 'tdText' })}>
+            <td ${this.htmlAttributes({
+                style: 'tdText',
+                'pardot-region': this.getAttribute('pardot-region') ? "" : undefined,
+            })}>
             ${
                 hasLink
                 ? `<a
